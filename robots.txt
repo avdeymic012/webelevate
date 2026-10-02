@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.webelevate.studio/sitemap.xml
+Sitemap: https://www.webelevateagency.com/sitemap.xml
