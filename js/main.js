@@ -133,7 +133,7 @@
     });
   }
 
-  /* ---------- Contact form validation (client-side demo, no backend) ---------- */
+  /* ---------- Contact form: validate, then send through Web3Forms ---------- */
   var form = document.querySelector("#contact-form");
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -152,19 +152,41 @@
       if (!valid) return;
 
       var submitBtn = form.querySelector('button[type="submit"]');
-      var status = document.querySelector(".form-status");
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Sending…";
+      var okStatus = form.querySelector(".form-status--ok");
+      var errStatus = form.querySelector(".form-status--error");
+      okStatus.classList.remove("is-visible");
+      errStatus.classList.remove("is-visible");
+
+      var payload = {};
+      new FormData(form).forEach(function (value, key) { payload[key] = value; });
+
+      /* never report success unless the form service really accepted the message */
+      if (!payload.access_key || payload.access_key === "YOUR_ACCESS_KEY_HERE") {
+        errStatus.classList.add("is-visible");
+        return;
       }
-      setTimeout(function () {
-        if (submitBtn) {
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload)
+      })
+        .then(function (res) { return res.json().then(function (data) { return { ok: res.ok && data.success, data: data }; }); })
+        .then(function (result) {
+          if (!result.ok) throw new Error("rejected");
+          okStatus.classList.add("is-visible");
+          form.reset();
+        })
+        .catch(function () {
+          errStatus.classList.add("is-visible");
+        })
+        .then(function () {
           submitBtn.disabled = false;
           submitBtn.textContent = "Send Message";
-        }
-        if (status) status.classList.add("is-visible");
-        form.reset();
-      }, 900);
+        });
     });
 
     form.querySelectorAll("[required]").forEach(function (field) {

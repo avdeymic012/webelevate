@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=20260929d" />
+<link rel="stylesheet" href="css/style.css?v=20261002a" />
 </head>
 <body>
 <div class="ambient-lights" aria-hidden="true"><span class="orb orb-1"></span><span class="orb orb-2"></span><span class="orb orb-3"></span><span class="orb orb-4"></span><span class="orb orb-5"></span><span class="orb orb-6"></span></div>
@@ -77,6 +77,10 @@
 
         <div data-reveal>
           <form id="contact-form" novalidate>
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+            <input type="hidden" name="subject" value="New inquiry from the WebElevate website" />
+            <input type="hidden" name="from_name" value="WebElevate website" />
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
             <div class="grid grid-2" style="gap: 0 var(--space-5);">
               <div class="field">
                 <label for="name">Name <span class="req">*</span></label>
@@ -103,10 +107,10 @@
               <div class="field">
                 <label for="budget">Budget range</label>
                 <select id="budget" name="budget">
-                  <option>Under $2,500</option>
-                  <option>$2,500 – $5,500</option>
-                  <option>$5,500 – $10,000</option>
-                  <option>$10,000+</option>
+                  <option>Under $1,000</option>
+                  <option>$1,000 – $2,000</option>
+                  <option>$2,000 – $5,000</option>
+                  <option>$5,000+</option>
                 </select>
               </div>
             </div>
@@ -117,9 +121,13 @@
               <span class="hint">The more context you give us, the faster we can put together a plan.</span>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-            <div class="form-status" role="status" aria-live="polite">
+            <div class="form-status form-status--ok" role="status" aria-live="polite">
               <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Thanks — your message is in. We'll be in touch within one business day.
+            </div>
+            <div class="form-status form-status--error" role="alert">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v5M12 16v.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              Sorry — your message didn't go through. Please try again in a moment.
             </div>
           </form>
         </div>
@@ -215,6 +223,6 @@
   <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
-<script src="js/main.js?v=20260929d"></script>
+<script src="js/main.js?v=20261002a"></script>
 </body>
 </html>

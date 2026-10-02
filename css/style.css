@@ -1081,6 +1081,7 @@ footer { border-top: 1px solid var(--border); padding-block: var(--space-8) var(
   margin-top: var(--space-4);
 }
 .form-status.is-visible { display: flex; }
+.form-status--error { background: rgba(239, 106, 106, 0.12); border-color: rgba(239, 106, 106, 0.35); color: var(--danger); }
 .form-status svg { width: 20px; height: 20px; flex-shrink: 0; }
 
 /* ---------- Accordion (FAQ) ---------- */
