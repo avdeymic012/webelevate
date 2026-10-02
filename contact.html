@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact — WebElevate</title>
+<meta name="description" content="Start your website project with WebElevate. Tell us about your business and we'll follow up within one business day." />
+<meta name="theme-color" content="#0b0c0f" />
+<link rel="canonical" href="https://www.webelevate.studio/contact.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="WebElevate" />
+<meta property="og:url" content="https://www.webelevate.studio/contact.html" />
+<meta property="og:title" content="Contact — WebElevate" />
+<meta property="og:description" content="Start your website project with WebElevate. Tell us about your business and we'll follow up within one business day." />
+<meta property="og:image" content="https://www.webelevate.studio/images/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Contact — WebElevate" />
+<meta name="twitter:description" content="Start your website project with WebElevate. Tell us about your business and we'll follow up within one business day." />
+<meta name="twitter:image" content="https://www.webelevate.studio/images/og-image.jpg" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+<link rel="icon" type="image/png" href="images/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css?v=20260929d" />
+</head>
+<body>
+<div class="ambient-lights" aria-hidden="true"><span class="orb orb-1"></span><span class="orb orb-2"></span><span class="orb orb-3"></span><span class="orb orb-4"></span><span class="orb orb-5"></span><span class="orb orb-6"></span></div>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="nav-wrap">
+  <nav class="nav" aria-label="Primary">
+    <a class="logo" href="index.html">
+      <span class="logo-mark" aria-hidden="true">
+        <img src="images/logo-mark.png" alt="" width="320" height="320" />
+      </span>
+      WebElevate
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm desktop-only" href="contact.html">Start a Project</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </nav>
+</div>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a class="btn btn-primary btn-block" href="contact.html">Start a Project</a>
+</div>
+
+<main id="main">
+
+  <header class="page-header container">
+    <span class="eyebrow" style="justify-content:center; width:100%;">Contact</span>
+    <h1>Let's talk about your website</h1>
+    <p>Tell us a bit about your business and what you need — we'll follow up within one business day.</p>
+  </header>
+
+  <section class="section--tight">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div data-reveal>
+          <form id="contact-form" novalidate>
+            <div class="grid grid-2" style="gap: 0 var(--space-5);">
+              <div class="field">
+                <label for="name">Name <span class="req">*</span></label>
+                <input type="text" id="name" name="name" required autocomplete="name" />
+                <span class="error">Please enter your name.</span>
+              </div>
+              <div class="field">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" required autocomplete="email" inputmode="email" />
+                <span class="error">Please enter a valid email address.</span>
+              </div>
+            </div>
+            <div class="grid grid-2" style="gap: 0 var(--space-5);">
+              <div class="field">
+                <label for="project-type">Project type</label>
+                <select id="project-type" name="project-type">
+                  <option>New website</option>
+                  <option>Website redesign</option>
+                  <option>E-commerce</option>
+                  <option>Ongoing care / maintenance</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="budget">Budget range</label>
+                <select id="budget" name="budget">
+                  <option>Under $2,500</option>
+                  <option>$2,500 – $5,500</option>
+                  <option>$5,500 – $10,000</option>
+                  <option>$10,000+</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Tell us about your project <span class="req">*</span></label>
+              <textarea id="message" name="message" required></textarea>
+              <span class="error">Please share a few details about your project.</span>
+              <span class="hint">The more context you give us, the faster we can put together a plan.</span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+            <div class="form-status" role="status" aria-live="polite">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Thanks — your message is in. We'll be in touch within one business day.
+            </div>
+          </form>
+        </div>
+
+        <div data-reveal data-reveal-delay="120">
+          <div class="card">
+            <h4>Get in touch directly</h4>
+            <div class="info-card">
+              <div class="info-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/></svg></div>
+              <div>
+                <strong>Email</strong>
+                <p style="margin-top:2px;">hello@webelevate.studio</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+              <div>
+                <strong>Response time</strong>
+                <p style="margin-top:2px;">Within one business day, usually faster.</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19l6-6M14 4h6v6M20 4L10 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div>
+                <strong>Follow along</strong>
+                <div class="social-links" style="margin-top: var(--space-3);">
+                  <a href="#" aria-label="WebElevate on Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+                  <a href="#" aria-label="WebElevate on LinkedIn"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 11v5M8 8v.01M12 16v-3.5a1.5 1.5 0 013-.15V16M12 11v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: var(--space-5);">
+            <h4>What happens next</h4>
+            <ul class="feature-list" style="margin-top: var(--space-4);">
+              <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>We review your message and reply within one business day</li>
+              <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>A short call to scope your project and timeline</li>
+              <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>You get a fixed-price proposal, no surprises</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col">
+        <a class="logo" href="index.html">
+          <span class="logo-mark" aria-hidden="true">
+        <img src="images/logo-mark.png" alt="" width="320" height="320" />
+      </span>
+          WebElevate
+        </a>
+        <p style="margin-top: var(--space-4); max-width: 260px;">A small studio designing and building fast, elegant websites for growing businesses.</p>
+        <div class="social-links" style="margin-top: var(--space-5);">
+          <a href="#" aria-label="WebElevate on Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="WebElevate on LinkedIn"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 11v5M8 8v.01M12 16v-3.5a1.5 1.5 0 013-.15V16M12 11v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+          <a href="#" aria-label="WebElevate on X"><svg viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Studio</h4>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="services.html">Website Design</a>
+        <a href="services.html">Development</a>
+        <a href="services.html">Ongoing Care</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <span>Privacy Policy</span>
+        <span>Terms of Service</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 WebElevate Studio. All rights reserved.</span>
+      <span>Designed &amp; built in-house.</span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="js/main.js?v=20260929d"></script>
+</body>
+</html>
