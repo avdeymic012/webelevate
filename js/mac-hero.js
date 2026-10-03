@@ -295,19 +295,34 @@
 
   var target = progress();
   var cur = target;
+  var vel = 0;
   var raf = 0;
+  var last = 0;
+  var SMOOTH_TIME = 0.4;   // seconds the animation takes to catch up; higher = longer, floatier glide
   render(cur);
 
-  function tick() {
-    var d = target - cur;
-    if (Math.abs(d) < 0.0003) {
+  /* Critically damped spring, timed in real seconds so it feels the same at 60 and 120 Hz.
+     It eases in when scrolling starts and glides to rest after it stops, without overshooting. */
+  function tick(now) {
+    var dt = last ? Math.min((now - last) / 1000, 0.05) : 1 / 60;
+    last = now;
+    var omega = 2 / SMOOTH_TIME;
+    var x = omega * dt;
+    var decay = 1 / (1 + x + 0.48 * x * x + 0.235 * x * x * x);
+    var change = cur - target;
+    var temp = (vel + omega * change) * dt;
+    vel = (vel - omega * temp) * decay;
+    cur = target + (change + temp) * decay;
+
+    if (Math.abs(cur - target) < 0.0002 && Math.abs(vel) < 0.002) {
       cur = target;
+      vel = 0;
+      last = 0;
       render(cur);
       raf = 0;
       return;
     }
-    cur += d * 0.16;
-    render(cur);
+    render(clamp(cur, 0, 1));
     raf = requestAnimationFrame(tick);
   }
   function kick() { if (!raf) raf = requestAnimationFrame(tick); }
