@@ -1003,6 +1003,63 @@ body.menu-open { overflow: hidden; }
 .feature-list svg { width: 18px; height: 18px; color: var(--success); flex-shrink: 0; margin-top: 2px; }
 .price-card .feature-list { gap: var(--space-4); margin: var(--space-2) 0 var(--space-7); }
 
+/* package + care cards */
+.price-card .price-tagline { color: var(--text); font-weight: 500; }
+.price-card .price-best { font-size: var(--fs-xs); }
+.price-card .price-fine { font-size: var(--fs-xs); color: var(--text-faint); margin: calc(var(--space-3) * -1) 0 var(--space-5); }
+.price-card .price-plus { font-size: var(--fs-sm); font-weight: 600; color: var(--text); margin: calc(var(--space-3) * -1) 0 0; }
+.price-card .price-plus + .feature-list { margin-top: var(--space-4); }
+.price-tag .price-unit { display: inline; margin-left: 0.4em; font-size: var(--fs-sm); font-weight: 500; color: var(--text-muted); letter-spacing: 0; }
+.price-card .feature-list--lead { margin-bottom: var(--space-5); }
+
+/* "See everything included" expander (native <details>, no script) */
+.price-more { margin: 0 0 var(--space-7); border-top: 1px solid var(--border); padding-top: var(--space-4); }
+.price-more summary {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
+  min-height: 32px; cursor: pointer; list-style: none;
+  font-size: var(--fs-sm); font-weight: 600; color: var(--accent);
+}
+.price-more summary::-webkit-details-marker { display: none; }
+.price-more summary::after { content: "+"; font-size: 1.35rem; line-height: 1; transition: transform var(--dur-base) var(--ease-out); }
+.price-more[open] summary::after { transform: rotate(45deg); }
+.price-more .feature-list { margin: var(--space-4) 0 0; flex: none; }
+
+/* featured package: slightly taller, softly tinted, glowing border (desktop) */
+.price-card.popular { background: linear-gradient(180deg, rgba(201, 173, 130, 0.08), var(--surface) 45%); }
+@media (min-width: 900px) {
+  .price-card.popular { margin-block: calc(var(--space-4) * -1); padding-block: calc(var(--space-7) + var(--space-4)); }
+}
+/* recommended care plan: same idea, quieter */
+.price-card.recommended { border-color: var(--accent-ring); }
+.price-card.recommended .badge { background: var(--surface-2); color: var(--accent); border: 1px solid var(--accent-ring); }
+
+/* in-page jump links above the packages */
+.jump-links { margin-bottom: var(--space-8); }
+.jump-links .filter-tab { display: inline-flex; align-items: center; }
+.jump-links .filter-tab:hover { color: var(--text); border-color: var(--accent-ring); }
+
+/* additional services price list */
+.rate-list { border-top: 1px solid var(--border); }
+.rate-row {
+  display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2) var(--space-5);
+  padding: var(--space-4) 0; border-bottom: 1px solid var(--border);
+}
+@media (max-width: 560px) { .rate-row { flex-direction: column; align-items: flex-start; gap: var(--space-1); } }
+.rate-name { color: var(--text); font-weight: 600; }
+.rate-price { font-family: var(--font-sans); font-size: var(--fs-lg); font-weight: 800; color: var(--text); white-space: nowrap; }
+.rate-from { margin-right: 0.6em; font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+
+/* plan chosen on the pricing page, shown on the contact form */
+.form-plan {
+  display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2) var(--space-3);
+  padding: var(--space-3) var(--space-4); margin-bottom: var(--space-5);
+  border-radius: var(--radius-sm); background: var(--accent-soft); border: 1px solid var(--accent-ring);
+  font-size: var(--fs-sm); color: var(--text-muted);
+}
+.form-plan[hidden] { display: none; }
+.form-plan strong { color: var(--text); }
+.form-plan a { margin-left: auto; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
 /* ---------- CTA banner ---------- */
 .cta-banner {
   border-radius: var(--radius-lg);

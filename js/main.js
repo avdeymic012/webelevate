@@ -136,6 +136,28 @@
   /* ---------- Contact form: validate, then send through Web3Forms ---------- */
   var form = document.querySelector("#contact-form");
   if (form) {
+    /* Pricing buttons link here as contact.html?plan=<key>. Show which plan was picked, send it
+       with the inquiry, and pre-select the matching project type. Unknown keys are ignored. */
+    var PLANS = {
+      "essential-website": ["Essential Website ($899)", "New website"],
+      "professional-website": ["Professional Website ($1,499)", "New website"],
+      "business-growth-website": ["Business Growth Website (from $2,499, quote)", "New website"],
+      "essential-care": ["Essential Care ($59/month)", "Ongoing care / maintenance"],
+      "professional-care": ["Professional Care ($119/month)", "Ongoing care / maintenance"],
+      "growth-care": ["Growth Care ($229/month)", "Ongoing care / maintenance"]
+    };
+    var planKey = new URLSearchParams(window.location.search).get("plan");
+    var planField = document.getElementById("plan-field");
+    var planNote = document.getElementById("plan-note");
+    var typeSelect = document.getElementById("project-type");
+    if (planKey && planField && planNote && Object.prototype.hasOwnProperty.call(PLANS, planKey)) {
+      planField.value = PLANS[planKey][0];
+      planField.disabled = false;
+      planNote.querySelector("strong").textContent = PLANS[planKey][0];
+      planNote.hidden = false;
+      if (typeSelect) typeSelect.value = PLANS[planKey][1];
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var valid = true;
@@ -179,6 +201,7 @@
           if (!result.ok) throw new Error("rejected");
           okStatus.classList.add("is-visible");
           form.reset();
+          if (planField && planNote) { planField.disabled = true; planNote.hidden = true; }
         })
         .catch(function () {
           errStatus.classList.add("is-visible");
