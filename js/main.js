@@ -172,6 +172,15 @@
         if (wrap) wrap.classList.toggle("has-error", !ok);
         if (!ok) valid = false;
       });
+      /* phone is optional; only complain if something was typed that can't be a phone number */
+      var phone = form.querySelector("#phone");
+      if (phone) {
+        var phoneVal = phone.value.trim();
+        var phoneOk = phoneVal === "" || (/^[0-9+()\-.\s]+$/.test(phoneVal) && phoneVal.replace(/\D/g, "").length >= 7);
+        var phoneWrap = phone.closest(".field");
+        if (phoneWrap) phoneWrap.classList.toggle("has-error", !phoneOk);
+        if (!phoneOk) valid = false;
+      }
       if (!valid) return;
 
       var submitBtn = form.querySelector('button[type="submit"]');
@@ -212,6 +221,14 @@
           submitBtn.textContent = "Send Message";
         });
     });
+
+    var phoneField = form.querySelector("#phone");
+    if (phoneField) {
+      phoneField.addEventListener("input", function () {
+        var wrap = phoneField.closest(".field");
+        if (wrap) wrap.classList.remove("has-error");
+      });
+    }
 
     form.querySelectorAll("[required]").forEach(function (field) {
       field.addEventListener("blur", function () {

@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=20261104d" />
+<link rel="stylesheet" href="css/style.css?v=20261104f" />
 </head>
 <body>
 <div class="ambient-lights" aria-hidden="true"><span class="orb orb-1"></span><span class="orb orb-2"></span><span class="orb orb-3"></span><span class="orb orb-4"></span><span class="orb orb-5"></span><span class="orb orb-6"></span></div>
@@ -99,6 +99,12 @@
                 <input type="email" id="email" name="email" required autocomplete="email" inputmode="email" />
                 <span class="error">Please enter a valid email address.</span>
               </div>
+            </div>
+            <div class="field">
+              <label for="phone">Phone number <span class="opt">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="(555) 123-4567" />
+              <span class="error">Please enter a valid phone number, or leave it blank.</span>
+              <span class="hint">Prefer a call or text? Add your number and we'll use it to reach you about this inquiry.</span>
             </div>
             <div class="grid grid-2" style="gap: 0 var(--space-5);">
               <div class="field">
@@ -228,6 +234,6 @@
   <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
-<script src="js/main.js?v=20261104d"></script>
+<script src="js/main.js?v=20261104f"></script>
 </body>
 </html>
