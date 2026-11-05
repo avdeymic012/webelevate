@@ -136,27 +136,21 @@
   /* ---------- Contact form: validate, then send through Web3Forms ---------- */
   var form = document.querySelector("#contact-form");
   if (form) {
-    /* Pricing buttons link here as contact.html?plan=<key>. Show which plan was picked, send it
-       with the inquiry, and pre-select the matching project type. Unknown keys are ignored. */
+    /* Pricing buttons link here as contact.html?plan=<key>. Pre-select the matching option in the
+       "What are you interested in?" dropdown. Unknown keys are ignored. */
     var PLANS = {
-      "essential-website": ["Essential Website ($899)", "New website"],
-      "professional-website": ["Professional Website ($1,499)", "New website"],
-      "business-growth-website": ["Business Growth Website (from $2,499, quote)", "New website"],
-      "essential-care": ["Essential Care ($59/month)", "Ongoing care / maintenance"],
-      "professional-care": ["Professional Care ($119/month)", "Ongoing care / maintenance"],
-      "growth-care": ["Growth Care ($229/month)", "Ongoing care / maintenance"],
-      "local-seo-addon": ["Local SEO & Reviews add-on (+$149/month)", "Ongoing care / maintenance"]
+      "essential-website": "Essential Website ($899)",
+      "professional-website": "Professional Website ($1,499)",
+      "business-growth-website": "Business Growth Website (from $2,499)",
+      "essential-care": "Essential Care ($59/month)",
+      "professional-care": "Professional Care ($119/month)",
+      "growth-care": "Growth Care ($229/month)",
+      "local-seo-addon": "Local SEO & Reviews add-on (+$149/month)"
     };
     var planKey = new URLSearchParams(window.location.search).get("plan");
-    var planField = document.getElementById("plan-field");
-    var planNote = document.getElementById("plan-note");
-    var typeSelect = document.getElementById("project-type");
-    if (planKey && planField && planNote && Object.prototype.hasOwnProperty.call(PLANS, planKey)) {
-      planField.value = PLANS[planKey][0];
-      planField.disabled = false;
-      planNote.querySelector("strong").textContent = PLANS[planKey][0];
-      planNote.hidden = false;
-      if (typeSelect) typeSelect.value = PLANS[planKey][1];
+    var interestSelect = document.getElementById("interest");
+    if (planKey && interestSelect && Object.prototype.hasOwnProperty.call(PLANS, planKey)) {
+      interestSelect.value = PLANS[planKey];
     }
 
     form.addEventListener("submit", function (e) {
@@ -211,7 +205,6 @@
           if (!result.ok) throw new Error("rejected");
           okStatus.classList.add("is-visible");
           form.reset();
-          if (planField && planNote) { planField.disabled = true; planNote.hidden = true; }
         })
         .catch(function () {
           errStatus.classList.add("is-visible");
