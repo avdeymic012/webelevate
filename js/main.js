@@ -136,8 +136,8 @@
   /* ---------- Contact form: validate, then send through Web3Forms ---------- */
   var form = document.querySelector("#contact-form");
   if (form) {
-    /* Pricing buttons link here as contact.html?plan=<key>. Pre-select the matching option in the
-       "What are you interested in?" dropdown. Unknown keys are ignored. */
+    /* Pricing buttons link here as contact.html?plan=<key>. Tick the matching box in the
+       "What are you interested in?" list. Unknown keys are ignored. */
     var PLANS = {
       "essential-website": "Essential Website ($899)",
       "professional-website": "Professional Website ($1,499)",
@@ -148,10 +148,20 @@
       "local-seo-addon": "Local SEO & Reviews add-on (+$149/month)"
     };
     var planKey = new URLSearchParams(window.location.search).get("plan");
-    var interestSelect = document.getElementById("interest");
-    if (planKey && interestSelect && Object.prototype.hasOwnProperty.call(PLANS, planKey)) {
-      interestSelect.value = PLANS[planKey];
+    var interestBoxes = form.querySelectorAll('input[name="interest"]');
+    if (planKey && Object.prototype.hasOwnProperty.call(PLANS, planKey)) {
+      interestBoxes.forEach(function (box) { if (box.value === PLANS[planKey]) box.checked = true; });
     }
+    /* one website package and one care plan at a time; extras can be combined freely */
+    interestBoxes.forEach(function (box) {
+      box.addEventListener("change", function () {
+        var group = box.getAttribute("data-group");
+        if (!box.checked || !group) return;
+        interestBoxes.forEach(function (other) {
+          if (other !== box && other.getAttribute("data-group") === group) other.checked = false;
+        });
+      });
+    });
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -184,7 +194,11 @@
       errStatus.classList.remove("is-visible");
 
       var payload = {};
-      new FormData(form).forEach(function (value, key) { payload[key] = value; });
+      var picked = [];
+      new FormData(form).forEach(function (value, key) {
+        if (key === "interest") picked.push(value); else payload[key] = value;
+      });
+      payload.interest = picked.length ? picked.join(" + ") : "Not sure yet / custom";
 
       /* never report success unless the form service really accepted the message */
       if (!payload.access_key || payload.access_key === "YOUR_ACCESS_KEY_HERE") {

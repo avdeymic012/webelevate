@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=20261104l" />
+<link rel="stylesheet" href="css/style.css?v=20261104m" />
 </head>
 <body>
 <div class="ambient-lights" aria-hidden="true"><span class="orb orb-1"></span><span class="orb orb-2"></span><span class="orb orb-3"></span><span class="orb orb-4"></span><span class="orb orb-5"></span><span class="orb orb-6"></span></div>
@@ -101,32 +101,32 @@
               <span class="error">Please enter a valid phone number, or leave it blank.</span>
               <span class="hint">Prefer a call or text? Add your number and we'll use it to reach you about this inquiry.</span>
             </div>
-            <div class="field">
-              <label for="interest">What are you interested in?</label>
-              <select id="interest" name="interest">
-                <option>Not sure yet / custom</option>
-                <optgroup label="Website packages">
-                  <option>Essential Website ($899)</option>
-                  <option>Professional Website ($1,499)</option>
-                  <option>Business Growth Website (from $2,499)</option>
-                </optgroup>
-                <optgroup label="Monthly care plans">
-                  <option>Essential Care ($59/month)</option>
-                  <option>Professional Care ($119/month)</option>
-                  <option>Growth Care ($229/month)</option>
-                  <option>Local SEO &amp; Reviews add-on (+$149/month)</option>
-                </optgroup>
-                <optgroup label="Other">
-                  <option>Additional service (redesign, SEO audit, fixes)</option>
-                </optgroup>
-              </select>
+            <fieldset class="interest">
+              <legend>What are you interested in? <span class="opt">(select all that apply)</span></legend>
+              <div class="choice-group">
+                <span class="choice-label">Website package <span class="opt">(pick one)</span></span>
+                <label class="choice"><input type="checkbox" name="interest" value="Essential Website ($899)" data-group="website" /><span class="choice-text">Essential Website</span><span class="choice-price">$899</span></label>
+                <label class="choice"><input type="checkbox" name="interest" value="Professional Website ($1,499)" data-group="website" /><span class="choice-text">Professional Website</span><span class="choice-price">$1,499</span></label>
+                <label class="choice"><input type="checkbox" name="interest" value="Business Growth Website (from $2,499)" data-group="website" /><span class="choice-text">Business Growth Website</span><span class="choice-price">from $2,499</span></label>
+              </div>
+              <div class="choice-group">
+                <span class="choice-label">Monthly care plan <span class="opt">(pick one)</span></span>
+                <label class="choice"><input type="checkbox" name="interest" value="Essential Care ($59/month)" data-group="care" /><span class="choice-text">Essential Care</span><span class="choice-price">$59/month</span></label>
+                <label class="choice"><input type="checkbox" name="interest" value="Professional Care ($119/month)" data-group="care" /><span class="choice-text">Professional Care</span><span class="choice-price">$119/month</span></label>
+                <label class="choice"><input type="checkbox" name="interest" value="Growth Care ($229/month)" data-group="care" /><span class="choice-text">Growth Care</span><span class="choice-price">$229/month</span></label>
+              </div>
+              <div class="choice-group">
+                <span class="choice-label">Extras</span>
+                <label class="choice"><input type="checkbox" name="interest" value="Local SEO &amp; Reviews add-on (+$149/month)" /><span class="choice-text">Local SEO &amp; Reviews add-on</span><span class="choice-price">+$149/month</span></label>
+                <label class="choice"><input type="checkbox" name="interest" value="Additional service (redesign, SEO audit, fixes)" /><span class="choice-text">Additional service</span><span class="choice-price">redesign, SEO audit, fixes</span></label>
+              </div>
               <div class="field-aside">
-                <span class="hint">Not sure which fits?</span>
+                <span class="hint">Not sure which fits? Leave these blank, or</span>
                 <a class="btn btn-ghost btn-sm see-pricing" href="services.html#pricing">See pricing
                   <svg viewBox="0 0 20 20" fill="none" width="14" height="14" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
               </div>
-            </div>
+            </fieldset>
             <div class="field">
               <label for="message">Tell us about your project <span class="req">*</span></label>
               <textarea id="message" name="message" required></textarea>
@@ -234,6 +234,6 @@
   <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
-<script src="js/main.js?v=20261104l"></script>
+<script src="js/main.js?v=20261104m"></script>
 </body>
 </html>
