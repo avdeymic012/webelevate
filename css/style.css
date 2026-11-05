@@ -1297,10 +1297,10 @@ footer { border-top: 1px solid var(--border); padding-block: var(--space-8) var(
   .page-header:has(+ .container .jump-links) { padding-top: calc(var(--space-9) + 10px); padding-bottom: var(--space-5); }
 }
 
-/* "See pricing" button under the interest dropdown on the contact form */
-.field-aside { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-3); }
-.see-pricing { color: var(--accent); border-color: var(--accent-ring); gap: var(--space-2); }
-.see-pricing:hover { color: var(--text); border-color: var(--accent); }
+/* "see pricing" link in the hint under the interest checkboxes */
+.interest .hint { display: block; font-size: var(--fs-xs); color: var(--text-faint); }
+.see-pricing { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent-ring); }
+.see-pricing:hover { color: var(--text); text-decoration-color: var(--accent); }
 
 /* "What are you interested in?" multi-select on the contact form */
 .interest { border: 0; padding: 0; margin: 0 0 var(--space-5); min-width: 0; }
