@@ -1271,3 +1271,11 @@ footer { border-top: 1px solid var(--border); padding-block: var(--space-8) var(
 @media (hover: none) {
   .card:hover, .project-card:hover, .btn-primary:hover { transform: none; }
 }
+
+/* Local SEO & Reviews add-on, shown under the care plans */
+.addon-card { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); align-items: center; padding: var(--space-7); }
+.addon-card .addon-main { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+.addon-card .addon-main .badge { margin-bottom: var(--space-1); }
+.addon-card .price-tag { margin: var(--space-2) 0 var(--space-3); }
+.addon-card .feature-list { margin: 0; }
+@media (max-width: 800px) { .addon-card { grid-template-columns: 1fr; gap: var(--space-5); padding: var(--space-6); } }

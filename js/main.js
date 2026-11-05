@@ -144,7 +144,8 @@
       "business-growth-website": ["Business Growth Website (from $2,499, quote)", "New website"],
       "essential-care": ["Essential Care ($59/month)", "Ongoing care / maintenance"],
       "professional-care": ["Professional Care ($119/month)", "Ongoing care / maintenance"],
-      "growth-care": ["Growth Care ($229/month)", "Ongoing care / maintenance"]
+      "growth-care": ["Growth Care ($229/month)", "Ongoing care / maintenance"],
+      "local-seo-addon": ["Local SEO & Reviews add-on (+$149/month)", "Ongoing care / maintenance"]
     };
     var planKey = new URLSearchParams(window.location.search).get("plan");
     var planField = document.getElementById("plan-field");
