@@ -141,18 +141,14 @@
     var PLANS = {
       "essential-website": "Essential Website ($899)",
       "professional-website": "Professional Website ($1,499)",
-      "business-growth-website": "Business Growth Website (from $2,499)",
-      "essential-care": "Essential Care ($59/month)",
-      "professional-care": "Professional Care ($119/month)",
-      "growth-care": "Growth Care ($229/month)",
-      "local-seo-addon": "Local SEO & Reviews add-on (+$149/month)"
+      "business-growth-website": "Business Growth Website (from $2,499)"
     };
     var planKey = new URLSearchParams(window.location.search).get("plan");
     var interestBoxes = form.querySelectorAll('input[name="interest"]');
     if (planKey && Object.prototype.hasOwnProperty.call(PLANS, planKey)) {
       interestBoxes.forEach(function (box) { if (box.value === PLANS[planKey]) box.checked = true; });
     }
-    /* one website package and one care plan at a time; extras can be combined freely */
+    /* one website package at a time; other options can be combined freely */
     interestBoxes.forEach(function (box) {
       box.addEventListener("change", function () {
         var group = box.getAttribute("data-group");
